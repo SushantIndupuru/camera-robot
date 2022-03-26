@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            Home
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/jpg" href="/static/robot.ico">
+        <style>
+            button {
+                cursor: pointer
+            }
+            html {
+                text-align: center;
+                font-family: sans-serif;
+                user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h2>Using button to show the date</h2>
+
+
+        <button id="myBtn">Show date and time</button>
+        <button id="gonebtn">Make it go away</button>
+        <button id="postbutton">do post</button>
+        <p id="the_text"></p>
+        <script>
+            
+            document.getElementById("myBtn").addEventListener("click", displayDate);
+            document.getElementById("gonebtn").addEventListener("click", gone);
+            document.getElementById("postbutton").addEventListener("click", pressed);
+            function displayDate() {
+                document.getElementById("the_text").innerHTML = Date();
+            }
+            function gone() {
+                document.getElementById("the_text").innerHTML = ""
+            }
+            function pressed() {
+                let data = {button: "pressed"};
+
+                fetch("/button", {
+                    method: "POST", 
+                    body: JSON.stringify(data)}).then(res => {console.log("Request complete! response:", res);})
+            }
+            
+        </script>
+
+    </body>
+</html>

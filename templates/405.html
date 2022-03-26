@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>405</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/jpg" href="/static/robot.ico">
+        <style>
+            button {
+                cursor: pointer
+            }
+            html {
+                text-align: center;
+                font-family: sans-serif;
+                user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>405</h1>
+        <p>This means that you are not allowed here, or in other words, acces denied.</p>
+        <button onclick="redirect()">Back to homepage</button>
+        <script>
+            function redirect() {
+                location.replace("http://10.0.0.78:5000");
+            }
+        </script>
+    </body>
+</html>
